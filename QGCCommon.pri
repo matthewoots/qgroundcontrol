@@ -19,19 +19,20 @@
 CONFIG -= debug_and_release
 linux {
     linux-g++ | linux-g++-64 | linux-g++-32 | linux-clang {
-        message("Linux build")
-        CONFIG  += LinuxBuild
-        DEFINES += __STDC_LIMIT_MACROS
-        DEFINES += QGC_GST_TAISYNC_ENABLED
-        DEFINES += QGC_GST_MICROHARD_ENABLED 
-        DEFINES += QGC_ENABLE_MAVLINK_INSPECTOR
-        linux-clang {
-            message("Linux clang")
-            QMAKE_CXXFLAGS += -Qunused-arguments -fcolor-diagnostics
-        }
-    } else : linux-rasp-pi2-g++ {
+#        message("Linux build")
+#        CONFIG  += LinuxBuild
+#        DEFINES += __STDC_LIMIT_MACROS
+#        DEFINES += QGC_GST_TAISYNC_ENABLED
+#        DEFINES += QGC_GST_MICROHARD_ENABLED 
+#        DEFINES += QGC_ENABLE_MAVLINK_INSPECTOR
+#        linux-clang {
+#            message("Linux clang")
+#            QMAKE_CXXFLAGS += -Qunused-arguments -fcolor-diagnostics
+#        }
+#    } else : linux-rasp-pi2-g++ {
         message("Linux R-Pi2 build")
         CONFIG += LinuxBuild
+        CONFIG += DISABLE_VIDEOSTREAMING
         DEFINES += __STDC_LIMIT_MACROS __rasp_pi2__
         DEFINES += QGC_GST_TAISYNC_ENABLED
         DEFINES += QGC_GST_MICROHARD_ENABLED 
